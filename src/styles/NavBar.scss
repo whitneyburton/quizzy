@@ -1,0 +1,32 @@
+.NavBar {
+  border: 5px solid grey;
+}
+
+.quizzy-title {
+  text-align: center;
+  margin: 0px;
+}
+
+.filter-category-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choose-category {
+  font-size: 14px;
+}
+
+.buttons {
+  font-size: 12px;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 0px 10px;
+
+  &:hover {
+    cursor: pointer;
+  }  
+  
+  &:focus {
+  }
+}
