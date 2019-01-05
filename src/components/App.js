@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Flashcard from './Flashcard';
 import '../styles/main.scss';
+import FlashcardContainer from './FlashcardContainer';
+import PlayerControl from './PlayerControl';
+import NavBar from './NavBar';
+
 
 export default class App extends Component {
   constructor() {
@@ -28,9 +31,11 @@ export default class App extends Component {
     if (!error) {
       return (
         <div className="App">
-          <p className="a">App</p>
-          <Flashcard
-            flashcards={flashcards} />
+          <NavBar />
+          <div className="main-page">
+            <FlashcardContainer flashcards={flashcards} />
+            <PlayerControl />
+          </div>
         </div>
       )
     }
