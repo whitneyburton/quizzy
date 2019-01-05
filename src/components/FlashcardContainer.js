@@ -4,7 +4,10 @@ import '../styles/main.scss';
 
 export default function FlashcardContainer() {
     return (
-    <div className="FlashcardContainer">
+      <div className="FlashcardContainer">
+        <h2 className="all-flashcards-header">
+          Flashcards for: <span>Mutator</span> methods
+          </h2>
         <Flashcard />
         <Flashcard />
         <Flashcard />
@@ -13,6 +16,19 @@ export default function FlashcardContainer() {
         <Flashcard />
         <Flashcard />
         <Flashcard />
+        <Flashcard />
+        <Flashcard />
+        <Flashcard />
+        <Flashcard />
+        <Flashcard />
+        <Flashcard />
+        <Flashcard />
+        <Flashcard />
+        <Flashcard />
+        <Flashcard />
+        <Flashcard />
+        <Flashcard />
+
     </div>
   );
 }

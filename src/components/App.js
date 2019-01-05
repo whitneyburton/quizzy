@@ -33,8 +33,8 @@ export default class App extends Component {
         <div className="App">
           <NavBar />
           <div className="main-page">
-            <FlashcardContainer flashcards={flashcards} />
             <PlayerControl />
+            <FlashcardContainer flashcards={flashcards} />
           </div>
         </div>
       )
