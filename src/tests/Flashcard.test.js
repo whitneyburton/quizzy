@@ -1,3 +1,3 @@
 import React from 'react';
-import AnswerCard from '../Components/AnswerCard';
+import Flashcard from '../Components/Flashcard';
 import { shallow } from 'enzyme';
