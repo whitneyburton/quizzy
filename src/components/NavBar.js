@@ -5,7 +5,6 @@ export default class NavBar extends Component {
   constructor() {
     super();
     this.state = {
-      
     }
   }
 
@@ -37,7 +36,6 @@ export default class NavBar extends Component {
             className="all-methods-button buttons"
             type="button">All Methods!</button>
         </div>
-
       </div>
     );
   }

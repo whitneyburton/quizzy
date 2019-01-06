@@ -10,7 +10,6 @@ export default class App extends Component {
     super();
     this.state = {
       error: null,
-      isLoaded: false,
       flashcards: [],
       category: null
     }
@@ -26,7 +25,7 @@ export default class App extends Component {
             flashcard.correct = null;
             return flashcard;
           })
-          this.setState({ isLoaded: true, flashcards: updatedFlashcards })
+          this.setState({ flashcards: updatedFlashcards })
         }
       )
       .catch((error) => this.setState({ error: true }))
@@ -52,26 +51,25 @@ export default class App extends Component {
 
   render() {
     let { error, category } = this.state;
-    if (!error) {
-      return (
-        <div className="App">
-          <NavBar
-            filterCardsByCategory={this.filterCardsByCategory}
-            updateCategory={this.updateCategory}/>
-          <div className="main-page">
-            <PlayerControl
-              filteredCards={this.filterCardsByCategory()} />
-            <FlashcardContainer
-              category={category}
-              filteredCards={this.filterCardsByCategory()} />
+    return (
+      <div className="App">
+        {!error ? (
+          <div>
+            <NavBar
+              filterCardsByCategory={this.filterCardsByCategory}
+              updateCategory={this.updateCategory} />
+            <div className="main-page">
+              <PlayerControl
+                filteredCards={this.filterCardsByCategory()} />
+              <FlashcardContainer
+                category={category}
+                filteredCards={this.filterCardsByCategory()} />
+            </div>
           </div>
-        </div>
-      )
-    }
-    if (error) {
-      return <span role={"img"} aria-label="error">Oops, something went wrong. 💩 </span>
-    } else {
-      return (<div>LOADING</div>)
-    }
+        ) : (
+            <span role={"img"} aria-label="error">Oops, something went wrong. 💩 </span>
+          )}
+      </div>
+    )
   }
 }

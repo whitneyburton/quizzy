@@ -13,7 +13,7 @@ export default class PlayerControl extends Component {
     return (
       <div className="PlayerControl">
         <h2>Your Stats:</h2>
-        <p className="correct-answers stats">CORRECT: 
+        <p className="correct-answers stats">CORRECT:
           <span>{filteredCards.filter(flashcard => flashcard.correct === true).length}
           </span></p>
         <p className="incorrect-answers stats">INCORRECT:
