@@ -12,25 +12,26 @@ export default class App extends Component {
       error: null,
       isLoaded: false,
       flashcards: [],
-      // category: '',
       filterQuery: [],
-      correct: 0,
-      incorrect: 0
     }
   }
 
-  updatePlayerControl() {
-    let allFlashcards = [...this.state.flashcards]
-    let correct = allFlashcards.filter(flashcard => {
-      return flashcard.correct = true;
-    }).length
-    let incorrect = allFlashcards.filter(flashcard => {
-      return flashcard.correct = false;
-    }).length
-    this.setState({ correct, incorrect })
-    console.log(correct, incorrect)
+  componentDidMount() {
+    fetch('http://memoize-datasets.herokuapp.com/api/v1/flashCardData')
+      .then(result => result.json())
+      .then(
+        (result) => {
+          const allFlashcards = result.flashcardData
+          const updatedFlashcards = allFlashcards.map(flashcard => {
+            flashcard.correct = null;
+            return flashcard;
+          })
+          this.setState({ isLoaded: true, flashcards: updatedFlashcards })
+        }
+      )
+      .catch((error) => this.setState({ error: true }))
   }
-
+  
   setCategory = (e) => {
     let buttonClicked = e.target.innerText;
     let allFlashcards = [...this.state.flashcards]
@@ -56,37 +57,23 @@ export default class App extends Component {
         break;
       default: ;
     }
-    if (buttonClicked === 'Mutator') {
-    }
     this.setState({
       filterQuery
     })
   }
 
-  componentDidMount() {
-    fetch('http://memoize-datasets.herokuapp.com/api/v1/flashCardData')
-      .then(result => result.json())
-      .then(
-        (result) => {
-          this.setState({ isLoaded: true, flashcards: result.flashcardData })
-        }
-      )
-      .catch((error) => this.setState({ error: true }))
-  }
 
   render() {
-    let { error, filterQuery, correct, incorrect, updatePlayerControl } = this.state;
+    let { error, filterQuery } = this.state;
     if (!error) {
       return (
         <div className="App">
           <NavBar setCategory={this.setCategory} />
           <div className="main-page">
             <PlayerControl
-              correct={correct}
-              incorrect={incorrect} />
+              filterQuery={filterQuery}/>
             <FlashcardContainer
-              flashcards={filterQuery}
-              updatePlayerControl={this.updatePlayerControl} />
+              flashcards={filterQuery} />
           </div>
         </div>
       )
