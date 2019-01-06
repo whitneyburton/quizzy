@@ -9,13 +9,20 @@ export default class PlayerControl extends Component {
     }
   }
   render() {
-    let { correct, incorrect } = this.props;
+    let { filterQuery } = this.props;
+    console.log(filterQuery.filter(flashcard => flashcard.correct === true).length)
     return (
       <div className="PlayerControl">
         <h2>Your Stats:</h2>
-        <p className="correct-answers stats">CORRECT: <span>{correct}</span></p>
-        <p className="incorrect-answers stats">INCORRECT: <span>{incorrect}</span></p>
-        <p className="accuracy stats">ACCURACY: <span>50</span>%</p>
+        <p className="correct-answers stats">CORRECT: 
+          <span>{filterQuery.filter(flashcard => flashcard.correct === true).length}
+          </span></p>
+        <p className="incorrect-answers stats">INCORRECT:
+          <span>{filterQuery.filter(flashcard => flashcard.correct === false).length}</span></p>
+        <p className="unanswered-answers stats">UNANSWERED:
+          <span>{filterQuery.filter(flashcard => flashcard.correct === null).length}</span></p>
+        <p className="accuracy stats">ACCURACY:
+          <span>50</span>%</p>
         <button
           className="view-incorrect-button buttons"
           type="button">View Incorrect Cards</button>
