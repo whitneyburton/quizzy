@@ -20,7 +20,7 @@ export default class Flashcard extends Component {
   }
 
   render() {
-    const { flashcard, flashcards, updatePlayerControl } = this.props;
+    const { flashcard, flashcards } = this.props;
     return (
       <div className="Flashcard">
         <p className="question-counter">
@@ -28,7 +28,7 @@ export default class Flashcard extends Component {
         </p>
         <p>{flashcard.question}</p>
         <button
-          onClick={this.updateCorrect, updatePlayerControl}
+          onClick={this.updateCorrect}
           className="answer-one buttons"
           type="button">{flashcard.answer}</button>
         <button
