@@ -12,6 +12,7 @@ export default function FlashcardContainer(props) {
             key={flashcard.id}
             flashcard={flashcard}
             flashcards={props.flashcards}
+            updatePlayerControl={props.updatePlayerControl}
           />
         )}
     </div>

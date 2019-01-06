@@ -13,8 +13,22 @@ export default class App extends Component {
       isLoaded: false,
       flashcards: [],
       // category: '',
-      filterQuery: []
+      filterQuery: [],
+      correct: 0,
+      incorrect: 0
     }
+  }
+
+  updatePlayerControl() {
+    let allFlashcards = [...this.state.flashcards]
+    let correct = allFlashcards.filter(flashcard => {
+      return flashcard.correct = true;
+    }).length
+    let incorrect = allFlashcards.filter(flashcard => {
+      return flashcard.correct = false;
+    }).length
+    this.setState({ correct, incorrect })
+    console.log(correct, incorrect)
   }
 
   setCategory = (e) => {
@@ -61,15 +75,18 @@ export default class App extends Component {
   }
 
   render() {
-    let { error, filterQuery } = this.state;
+    let { error, filterQuery, correct, incorrect, updatePlayerControl } = this.state;
     if (!error) {
       return (
         <div className="App">
           <NavBar setCategory={this.setCategory} />
           <div className="main-page">
-            <PlayerControl />
+            <PlayerControl
+              correct={correct}
+              incorrect={incorrect} />
             <FlashcardContainer
-              flashcards={filterQuery} />
+              flashcards={filterQuery}
+              updatePlayerControl={this.updatePlayerControl} />
           </div>
         </div>
       )

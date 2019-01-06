@@ -9,12 +9,12 @@ export default class PlayerControl extends Component {
     }
   }
   render() {
-    // let { numCorrect } = this.props;
+    let { correct, incorrect } = this.props;
     return (
       <div className="PlayerControl">
         <h2>Your Stats:</h2>
-        <p className="correct-answers stats">CORRECT: <span>6</span></p>
-        <p className="incorrect-answers stats">INCORRECT: <span>6</span></p>
+        <p className="correct-answers stats">CORRECT: <span>{correct}</span></p>
+        <p className="incorrect-answers stats">INCORRECT: <span>{incorrect}</span></p>
         <p className="accuracy stats">ACCURACY: <span>50</span>%</p>
         <button
           className="view-incorrect-button buttons"
