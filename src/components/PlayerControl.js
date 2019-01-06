@@ -5,11 +5,11 @@ export default class PlayerControl extends Component {
   constructor() {
     super();
     this.state = {
-
+      
     }
   }
   render() {
-    // let { flashcards } = this.state.props;
+    // let { numCorrect } = this.props;
     return (
       <div className="PlayerControl">
         <h2>Your Stats:</h2>
