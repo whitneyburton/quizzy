@@ -5,7 +5,6 @@ export default class Flashcard extends Component {
   constructor() {
     super();
     this.state = {
-      // correct: null
     }
   }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/main.scss';
 import FlashcardContainer from './FlashcardContainer';
-// import PlayerControl from './PlayerControl';
+import PlayerControl from './PlayerControl';
 import NavBar from './NavBar';
 
 
@@ -59,9 +59,11 @@ export default class App extends Component {
             filterCardsByCategory={this.filterCardsByCategory}
             updateCategory={this.updateCategory}/>
           <div className="main-page">
+            <PlayerControl
+              filteredCards={this.filterCardsByCategory()} />
             <FlashcardContainer
               category={category}
-              filteredCards={this.filterCardsByCategory()}/>
+              filteredCards={this.filterCardsByCategory()} />
           </div>
         </div>
       )

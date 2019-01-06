@@ -5,24 +5,21 @@ export default class PlayerControl extends Component {
   constructor() {
     super();
     this.state = {
-      filteredCards: []
     }
   }
 
-  
-
   render() {
-    let { flashcards, category } = this.props;
+    let { filteredCards } = this.props;
     return (
       <div className="PlayerControl">
         <h2>Your Stats:</h2>
         <p className="correct-answers stats">CORRECT: 
-          <span>{filterQuery.filter(flashcard => flashcard.correct === true).length}
+          <span>{filteredCards.filter(flashcard => flashcard.correct === true).length}
           </span></p>
         <p className="incorrect-answers stats">INCORRECT:
-          <span>{filterQuery.filter(flashcard => flashcard.correct === false).length}</span></p>
+          <span>{filteredCards.filter(flashcard => flashcard.correct === false).length}</span></p>
         <p className="unanswered-answers stats">UNANSWERED:
-          <span>{filterQuery.filter(flashcard => flashcard.correct === null).length}</span></p>
+          <span>{filteredCards.filter(flashcard => flashcard.correct === null).length}</span></p>
         <p className="accuracy stats">ACCURACY:
           <span>50</span>%</p>
         <button
