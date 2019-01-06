@@ -20,11 +20,11 @@ export default class Flashcard extends Component {
   }
 
   render() {
-    const { flashcard, flashcards } = this.props;
+    const { flashcard, filteredCards } = this.props;
     return (
       <div className="Flashcard">
         <p className="question-counter">
-          Question {flashcards.indexOf(flashcard) + 1}/{flashcards.length}
+          Question {filteredCards.indexOf(flashcard) + 1}/{filteredCards.length}
         </p>
         <p>{flashcard.question}</p>
         <button

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/main.scss';
 import FlashcardContainer from './FlashcardContainer';
-import PlayerControl from './PlayerControl';
+// import PlayerControl from './PlayerControl';
 import NavBar from './NavBar';
 
 
@@ -12,7 +12,7 @@ export default class App extends Component {
       error: null,
       isLoaded: false,
       flashcards: [],
-      filterQuery: [],
+      category: null
     }
   }
 
@@ -31,49 +31,37 @@ export default class App extends Component {
       )
       .catch((error) => this.setState({ error: true }))
   }
-  
-  setCategory = (e) => {
-    let buttonClicked = e.target.innerText;
-    let allFlashcards = [...this.state.flashcards]
-    let filterQuery;
-    switch (buttonClicked) {
-      case 'Mutator':
-        filterQuery = allFlashcards.filter(flashcard => {
-          return buttonClicked.toLowerCase() === flashcard.type;
-        });
-        break;
-      case 'Accessor':
-        filterQuery = allFlashcards.filter(flashcard => {
-          return buttonClicked.toLowerCase() === flashcard.type;
-        })
-        break;
-      case 'Iteration':
-        filterQuery = allFlashcards.filter(flashcard => {
-          return buttonClicked.toLowerCase() === flashcard.type;
-        })
-        break;
-      case 'All Methods!':
-        filterQuery = allFlashcards;
-        break;
-      default: ;
-    }
+
+  updateCategory = (clickedCategory) => {
     this.setState({
-      filterQuery
+      category: clickedCategory
     })
   }
 
+  filterCardsByCategory = () => {
+    if (this.state.category !== null && this.state.category !== 'All Methods!') {
+      let filteredCards = this.state.flashcards.filter(flashcard => {
+        return this.state.category.toLowerCase() === flashcard.type;
+      });
+      return filteredCards;
+    } else {
+      let filteredCards = this.state.flashcards;
+      return filteredCards;
+    }
+  }
 
   render() {
-    let { error, filterQuery } = this.state;
+    let { error, category } = this.state;
     if (!error) {
       return (
         <div className="App">
-          <NavBar setCategory={this.setCategory} />
+          <NavBar
+            filterCardsByCategory={this.filterCardsByCategory}
+            updateCategory={this.updateCategory}/>
           <div className="main-page">
-            <PlayerControl
-              filterQuery={filterQuery}/>
             <FlashcardContainer
-              flashcards={filterQuery} />
+              category={category}
+              filteredCards={this.filterCardsByCategory()}/>
           </div>
         </div>
       )

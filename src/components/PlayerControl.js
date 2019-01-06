@@ -5,12 +5,14 @@ export default class PlayerControl extends Component {
   constructor() {
     super();
     this.state = {
-      
+      filteredCards: []
     }
   }
+
+  
+
   render() {
-    let { filterQuery } = this.props;
-    console.log(filterQuery.filter(flashcard => flashcard.correct === true).length)
+    let { flashcards, category } = this.props;
     return (
       <div className="PlayerControl">
         <h2>Your Stats:</h2>
