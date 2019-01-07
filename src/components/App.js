@@ -54,6 +54,10 @@ export default class App extends Component {
     }
   }
 
+  saveToStorage = (flashcard) => {
+    localStorage.setItem(`${flashcard.id}`, JSON.stringify(flashcard));
+  }
+
   render() {
     let { error, category } = this.state;
     return (
@@ -70,7 +74,8 @@ export default class App extends Component {
               />
               <FlashcardContainer
                 category={category}
-                filteredCards={this.filterCardsByCategory()} />
+                filteredCards={this.filterCardsByCategory()}
+                saveToStorage={this.saveToStorage} />
             </div>
           </div>
         ) : (
