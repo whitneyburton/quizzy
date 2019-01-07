@@ -10,8 +10,13 @@ export default class PlayerControl extends Component {
   }
 
   passCategory = () => {
-    let clickedCategory = 'Incorrect Only';
-    this.props.updateCategory(clickedCategory);
+    if (JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'))) {
+      let clickedCategory = 'Incorrect Only';
+      this.props.updateCategory(clickedCategory);
+    } else {
+      let clickedCategory = 'No study cards yet - Keep guessing!'
+      this.props.updateCategory(clickedCategory);      
+    }
   }
 
   render() {
