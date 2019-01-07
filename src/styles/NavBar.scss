@@ -1,10 +1,13 @@
 .NavBar {
-  border: 5px solid grey;
+  background-color: #136b62;
+  padding: 20px 32px 32px 32px;
 }
 
 .quizzy-title {
+  color: white;
   text-align: center;
   margin: 0px;
+  padding-bottom: 20px;
 }
 
 .filter-category-buttons {
@@ -14,19 +17,23 @@
 }
 
 .choose-category {
+  color: white;
   font-size: 14px;
 }
 
 .buttons {
   font-size: 12px;
   border-radius: 10px;
-  padding: 5px;
   margin: 0px 10px;
-
+  
   &:hover {
     cursor: pointer;
   }  
   
   &:focus {
   }
+}
+
+.filters {
+  padding: 5px;
 }

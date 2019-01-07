@@ -1,12 +1,31 @@
 .Flashcard {
-  border: 2px solid black;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #ccdedc;
   width: 75%;
   // height: 5000px;
   margin: 10px 0px;
-  padding: 10px;
+  padding: 28px;
 }
 
 .question-counter {
   text-align: right;
   font-size: 12px;
+}
+
+.flashcard-question {
+  margin: 20px 0px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flashcard-buttons {
+  padding: 10px;
+}
+
+.hide {
+  display: none;
 }
