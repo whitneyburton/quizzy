@@ -18,6 +18,20 @@ export default class Flashcard extends Component {
     }
   }
 
+  randomizeAnswers(allAnswers) {
+    let correctAnswerIndex = allAnswers.indexOf(flashcard)
+    allAnswers.splice(correctAnswerIndex, 1)
+    allAnswers.sort(() => {
+      return 0.5 - Math.random();
+    })
+    let finalArray = [...allAnswers.splice(0, 2), flashcard]
+    finalArray.sort(() => {
+      return 0.5 - Math.random();
+    })
+
+    return finalArray;
+  }
+
   render() {
     const { flashcard, filteredCards } = this.props;
     return (
@@ -31,11 +45,11 @@ export default class Flashcard extends Component {
           className="answer-one buttons"
           type="button">{flashcard.answer}</button>
         <button
-          onClick={this.updateCorrect}          
+          onClick={this.updateCorrect}
           className="answer-two buttons"
           type="button">Answer Two</button>
         <button
-          onClick={this.updateCorrect}          
+          onClick={this.updateCorrect}
           className="answer-three buttons"
           type="button">Answer Three</button>
       </div>
