@@ -22,15 +22,15 @@ export default class NavBar extends Component {
           <button
             onClick={this.passCategory}
             className="mutator-button buttons"
-            type="button">Mutator Methods</button>
+            type="button">Mutator</button>
           <button
             onClick={this.passCategory}            
             className="accessor-button buttons"
-            type="button">Accessor Methods</button>
+            type="button">Accessor</button>
           <button
             onClick={this.passCategory}
             className="iteration-button buttons"
-            type="button">Iteration Methods</button>
+            type="button">Iteration</button>
           <button
             onClick={this.passCategory}
             className="all-methods-button buttons"

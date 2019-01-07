@@ -8,6 +8,11 @@ export default class PlayerControl extends Component {
     }
   }
 
+  passCategory = () => {
+    let clickedCategory = 'Incorrect Only';
+    this.props.updateCategory(clickedCategory);
+  }
+
   render() {
     let { filteredCards } = this.props;
     return (
@@ -23,6 +28,7 @@ export default class PlayerControl extends Component {
         <p className="accuracy stats">ACCURACY:
           <span>50</span>%</p>
         <button
+          onClick={this.passCategory}          
           className="view-incorrect-button buttons"
           type="button">View Incorrect Cards</button>
         <button

@@ -16,19 +16,18 @@ export default class Flashcard extends Component {
       flashcard.correct = true;
       console.log('yay')
     } else {
+      flashcard.correct = false;
       console.log('nope')
     }
   }
 
   randomizeAnswers() {
     let { flashcard } = this.props;
-    let allAnswers = this.props.filteredCards.map(flashcard => flashcard.answer)
+    let allAnswers = this.props.filteredCards
+      .map(flashcard => flashcard.answer)
+      .sort(() => 0.5 - Math.random())
     let correctAnswerIndex = allAnswers.indexOf(flashcard)
-    allAnswers.splice(correctAnswerIndex, 1).sort(() => {
-      return 0.5 - Math.random();
-    })
-    console.log('correct index', correctAnswerIndex)
-    console.log('all answers', allAnswers)
+    allAnswers.splice(correctAnswerIndex, 1)
     let finalArray = [...allAnswers.splice(0, 2), flashcard.answer].sort(() => {
       return 0.5 - Math.random();
     })

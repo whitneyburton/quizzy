@@ -38,7 +38,12 @@ export default class App extends Component {
   }
 
   filterCardsByCategory = () => {
-    if (this.state.category !== null && this.state.category !== 'All Methods!') {
+    if (this.state.category === 'Incorrect Only') {
+      let filteredCards = this.state.flashcards.filter(flashcard => {
+        return flashcard.correct === false;
+      })
+      return filteredCards;
+    } else if (this.state.category !== null && this.state.category !== 'All Methods!') {
       let filteredCards = this.state.flashcards.filter(flashcard => {
         return this.state.category.toLowerCase() === flashcard.type;
       });
@@ -60,7 +65,9 @@ export default class App extends Component {
               updateCategory={this.updateCategory} />
             <div className="main-page">
               <PlayerControl
-                filteredCards={this.filterCardsByCategory()} />
+                filteredCards={this.filterCardsByCategory()}
+                updateCategory={this.updateCategory}
+              />
               <FlashcardContainer
                 category={category}
                 filteredCards={this.filterCardsByCategory()} />
