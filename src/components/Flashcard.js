@@ -14,44 +14,43 @@ export default class Flashcard extends Component {
     if (flashcard.answer === answerClicked) {
       // popup card with you got it right! more info -> mdn link, syntax
       flashcard.correct = true;
-      console.log('yay! you got it right!')
+      console.log('yay')
+    } else {
+      console.log('nope')
     }
   }
 
-  randomizeAnswers(allAnswers) {
+  randomizeAnswers() {
+    let { flashcard } = this.props;
+    let allAnswers = this.props.filteredCards.map(flashcard => flashcard.answer)
     let correctAnswerIndex = allAnswers.indexOf(flashcard)
-    allAnswers.splice(correctAnswerIndex, 1)
-    allAnswers.sort(() => {
+    allAnswers.splice(correctAnswerIndex, 1).sort(() => {
       return 0.5 - Math.random();
     })
-    let finalArray = [...allAnswers.splice(0, 2), flashcard]
-    finalArray.sort(() => {
+    console.log('correct index', correctAnswerIndex)
+    console.log('all answers', allAnswers)
+    let finalArray = [...allAnswers.splice(0, 2), flashcard.answer].sort(() => {
       return 0.5 - Math.random();
     })
-
     return finalArray;
   }
 
   render() {
     const { flashcard, filteredCards } = this.props;
+    let currentAnswersArray = this.randomizeAnswers()
     return (
       <div className="Flashcard">
         <p className="question-counter">
           Question {filteredCards.indexOf(flashcard) + 1}/{filteredCards.length}
         </p>
         <p>{flashcard.question}</p>
-        <button
-          onClick={this.updateCorrect}
-          className="answer-one buttons"
-          type="button">{flashcard.answer}</button>
-        <button
-          onClick={this.updateCorrect}
-          className="answer-two buttons"
-          type="button">Answer Two</button>
-        <button
-          onClick={this.updateCorrect}
-          className="answer-three buttons"
-          type="button">Answer Three</button>
+        {currentAnswersArray.map((answer, index) => {
+          return <button
+            key={index}
+            onClick={this.updateCorrect}
+            className="answer-one buttons"
+            type="button">{answer}</button>
+        })}
       </div>
     );
   }
