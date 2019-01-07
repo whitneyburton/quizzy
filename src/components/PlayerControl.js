@@ -20,14 +20,14 @@ export default class PlayerControl extends Component {
       <div className="PlayerControl">
         <h2>Your Stats:</h2>
         <p className="correct-answers stats">CORRECT:
-          <span>{filteredCards.filter(flashcard => flashcard.correct === true).length}
+          <span> {filteredCards.filter(flashcard => flashcard.correct === true).length}
           </span></p>
         <p className="incorrect-answers stats">INCORRECT:
-          <span>{filteredCards.filter(flashcard => flashcard.correct === false).length}</span></p>
+          <span> {filteredCards.filter(flashcard => flashcard.correct === false).length}</span></p>
         <p className="unanswered-answers stats">UNANSWERED:
-          <span>{filteredCards.filter(flashcard => flashcard.correct === null).length}</span></p>
+          <span> {filteredCards.filter(flashcard => flashcard.correct === null).length}</span></p>
         <p className="accuracy stats">ACCURACY:
-          <span>{filteredCards.length / (filteredCards.filter(flashcard => flashcard.correct === true).length)}</span>%</p>
+          <span> {((filteredCards.filter(flashcard => flashcard.correct === false).length) / filteredCards.length) * 100}</span>%</p>
         <button
           onClick={this.passCategory}          
           className="view-incorrect-button buttons"

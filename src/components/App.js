@@ -16,14 +16,8 @@ export default class App extends Component {
     }
   }
 
-  componentWillMount() {
-    localStorage.getItem('incorrectFlashcardsStorage') && 
-      this.setState({ incorrectFlashcards: JSON.parse(localStorage.getItem('incorrectFlashcardsStorage')) })
-  }
-
   componentDidMount() {
     this.getData();
-    this.retrieveFromStorage();
   }
 
   getData = () => {
@@ -36,7 +30,7 @@ export default class App extends Component {
           flashcard.correct = null;
           return flashcard;
         })
-        this.setState({ flashcards: updatedFlashcards })
+        this.setState({ flashcards: updatedFlashcards }, this.retrieveFromStorage)
       }
     )
     .catch((error) => this.setState({ error: true }))
@@ -50,7 +44,7 @@ export default class App extends Component {
 
   filterCardsByCategory = () => {
     if (this.state.category === 'Incorrect Only') {
-      let filteredCards = this.retrieveFromStorage();
+      let filteredCards = this.retrieveFromStorage() || [];
       return filteredCards;
     } else if (this.state.category !== null && this.state.category !== 'All Methods!') {
       let filteredCards = this.state.flashcards.filter(flashcard => {
@@ -73,17 +67,22 @@ export default class App extends Component {
       incorrectFlashcards.push(flashcard.id);
       localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcards))
     }
-    
   }
 
   retrieveFromStorage = () => {
     let { flashcards } = this.state;
+    let incorrectFlashcards;
     let incorrectFlashcardIDs = JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'));
-    let incorrectFlashcards = flashcards.filter(flashcard => {
-      if (incorrectFlashcardIDs.includes(flashcard.id)) {
-        return flashcard;
-      }
-    });
+    if (incorrectFlashcardIDs === null) {
+      incorrectFlashcards = [];
+    } else { 
+      incorrectFlashcards = flashcards.filter(flashcard => {
+        if (incorrectFlashcardIDs.includes(flashcard.id)) {
+          return flashcard;
+        }
+      });
+    }
+    this.setState({ incorrectFlashcards })
     return incorrectFlashcards;
   }
 

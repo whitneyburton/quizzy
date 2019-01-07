@@ -11,7 +11,7 @@ export default class Flashcard extends Component {
   validateAnswer = (e) => {
     let { flashcard, saveToStorage } = this.props;
       let answerClicked = e.target.innerText;
-      if (flashcard.answer === answerClicked) {
+    if (flashcard.answer === answerClicked) {
         // popup card with you got it right! more info -> mdn link, syntax
         flashcard.correct = true;
         console.log('yay')
@@ -43,14 +43,16 @@ export default class Flashcard extends Component {
         <p className="question-counter">
           Question {filteredCards.indexOf(flashcard) + 1}/{filteredCards.length}
         </p>
-        <p>{flashcard.question}</p>
-        {currentAnswersArray.map((answer, index) => {
-          return <button
-            key={index}
-            onClick={this.validateAnswer}
-            className="answer-one buttons"
-            type="button">{answer}</button>
-        })}
+        <p className="flashcard-question">{flashcard.question}</p>
+        <div className="buttons-container">
+          {currentAnswersArray.map((answer, index) => {
+            return <button
+              key={index}
+              onClick={this.validateAnswer}
+              className="buttons flashcard-buttons"
+              type="button">{answer}</button>
+          })}
+        </div>
       </div>
     );
   }
