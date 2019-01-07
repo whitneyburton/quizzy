@@ -5,6 +5,7 @@ export default class PlayerControl extends Component {
   constructor() {
     super();
     this.state = {
+
     }
   }
 
@@ -26,11 +27,11 @@ export default class PlayerControl extends Component {
         <p className="unanswered-answers stats">UNANSWERED:
           <span>{filteredCards.filter(flashcard => flashcard.correct === null).length}</span></p>
         <p className="accuracy stats">ACCURACY:
-          <span>50</span>%</p>
+          <span>{filteredCards.length / (filteredCards.filter(flashcard => flashcard.correct === true).length)}</span>%</p>
         <button
           onClick={this.passCategory}          
           className="view-incorrect-button buttons"
-          type="button">View Incorrect Cards</button>
+          type="button">View Study List</button>
         <button
           className="reset-button buttons"
           type="button">Reset Quizzy</button>

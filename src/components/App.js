@@ -9,26 +9,37 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
+      category: null,
       error: null,
       flashcards: [],
-      category: null
+      incorrectFlashcards: []
     }
   }
 
+  componentWillMount() {
+    localStorage.getItem('incorrectFlashcardsStorage') && 
+      this.setState({ incorrectFlashcards: JSON.parse(localStorage.getItem('incorrectFlashcardsStorage')) })
+  }
+
   componentDidMount() {
+    this.getData();
+    this.retrieveFromStorage();
+  }
+
+  getData = () => {
     fetch('http://memoize-datasets.herokuapp.com/api/v1/flashCardData')
-      .then(result => result.json())
-      .then(
-        (result) => {
-          const allFlashcards = result.flashcardData
-          const updatedFlashcards = allFlashcards.map(flashcard => {
-            flashcard.correct = null;
-            return flashcard;
-          })
-          this.setState({ flashcards: updatedFlashcards })
-        }
-      )
-      .catch((error) => this.setState({ error: true }))
+    .then(result => result.json())
+    .then(
+      (result) => {
+        const allFlashcards = result.flashcardData
+        const updatedFlashcards = allFlashcards.map(flashcard => {
+          flashcard.correct = null;
+          return flashcard;
+        })
+        this.setState({ flashcards: updatedFlashcards })
+      }
+    )
+    .catch((error) => this.setState({ error: true }))
   }
 
   updateCategory = (clickedCategory) => {
@@ -39,9 +50,7 @@ export default class App extends Component {
 
   filterCardsByCategory = () => {
     if (this.state.category === 'Incorrect Only') {
-      let filteredCards = this.state.flashcards.filter(flashcard => {
-        return flashcard.correct === false;
-      })
+      let filteredCards = this.retrieveFromStorage();
       return filteredCards;
     } else if (this.state.category !== null && this.state.category !== 'All Methods!') {
       let filteredCards = this.state.flashcards.filter(flashcard => {
@@ -55,7 +64,27 @@ export default class App extends Component {
   }
 
   saveToStorage = (flashcard) => {
-    localStorage.setItem(`${flashcard.id}`, JSON.stringify(flashcard));
+    let { incorrectFlashcards } = this.state;
+    if (JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'))) {
+      incorrectFlashcards = JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'));
+      incorrectFlashcards.push(flashcard.id);
+      localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcards));
+    } else {
+      incorrectFlashcards.push(flashcard.id);
+      localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcards))
+    }
+    
+  }
+
+  retrieveFromStorage = () => {
+    let { flashcards } = this.state;
+    let incorrectFlashcardIDs = JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'));
+    let incorrectFlashcards = flashcards.filter(flashcard => {
+      if (incorrectFlashcardIDs.includes(flashcard.id)) {
+        return flashcard;
+      }
+    });
+    return incorrectFlashcards;
   }
 
   render() {
@@ -70,8 +99,7 @@ export default class App extends Component {
             <div className="main-page">
               <PlayerControl
                 filteredCards={this.filterCardsByCategory()}
-                updateCategory={this.updateCategory}
-              />
+                updateCategory={this.updateCategory} />
               <FlashcardContainer
                 category={category}
                 filteredCards={this.filterCardsByCategory()}

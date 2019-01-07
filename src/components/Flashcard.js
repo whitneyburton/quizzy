@@ -8,18 +8,18 @@ export default class Flashcard extends Component {
     }
   }
 
-  updateCorrect = (e) => {
+  validateAnswer = (e) => {
     let { flashcard, saveToStorage } = this.props;
-    let answerClicked = e.target.innerText;
-    if (flashcard.answer === answerClicked) {
-      // popup card with you got it right! more info -> mdn link, syntax
-      flashcard.correct = true;
-      console.log('yay')
-    } else {
-      flashcard.correct = false;
-      console.log('nope')
-    }
-    saveToStorage(flashcard);
+      let answerClicked = e.target.innerText;
+      if (flashcard.answer === answerClicked) {
+        // popup card with you got it right! more info -> mdn link, syntax
+        flashcard.correct = true;
+        console.log('yay')
+      } else {
+        flashcard.correct = false;
+        saveToStorage(flashcard);
+        console.log('nope')
+      }
   }
 
   randomizeAnswers() {
@@ -29,7 +29,9 @@ export default class Flashcard extends Component {
       .sort(() => 0.5 - Math.random())
     let correctAnswerIndex = allAnswers.indexOf(flashcard)
     allAnswers.splice(correctAnswerIndex, 1)
-    let finalArray = [...allAnswers.splice(0, 2), flashcard.answer].sort(() => 0.5 - Math.random())
+    let finalArray = [...allAnswers
+      .splice(0, 2), flashcard.answer]
+      .sort(() => 0.5 - Math.random())
     return finalArray;
   }
 
@@ -45,7 +47,7 @@ export default class Flashcard extends Component {
         {currentAnswersArray.map((answer, index) => {
           return <button
             key={index}
-            onClick={this.updateCorrect}
+            onClick={this.validateAnswer}
             className="answer-one buttons"
             type="button">{answer}</button>
         })}

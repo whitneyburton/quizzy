@@ -11,8 +11,7 @@ export default function FlashcardContainer(props) {
           key={flashcard.id}
           flashcard={flashcard}
           filteredCards={props.filteredCards}
-          saveToStorage={props.saveToStorage}
-        />
+          saveToStorage={props.saveToStorage} />
       )}
     </div>
   );
