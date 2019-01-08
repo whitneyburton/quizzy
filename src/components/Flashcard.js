@@ -27,7 +27,7 @@ export default class Flashcard extends Component {
     let allAnswers = this.props.filteredCards
       .map(flashcard => flashcard.answer)
       .sort(() => 0.5 - Math.random())
-    let correctAnswerIndex = allAnswers.indexOf(flashcard)
+    let correctAnswerIndex = allAnswers.indexOf(flashcard.answer)
     allAnswers.splice(correctAnswerIndex, 1)
     let finalArray = [...allAnswers
       .splice(0, 2), flashcard.answer]

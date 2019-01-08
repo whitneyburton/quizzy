@@ -28,7 +28,9 @@ export default class App extends Component {
         const flashcards = result.flashcardData
         this.setState({
           flashcards,
-          category: 'Welcome to Quizzy! Choose a category above.'}, this.retrieveFromStorage)
+          category: 'Welcome to Quizzy! Choose a category above.'
+        },
+          this.retrieveFromStorage)
       }
     )
     .catch((error) => this.setState({ error: true }))
@@ -42,7 +44,7 @@ export default class App extends Component {
 
   filterCardsByCategory = () => {
     if (this.state.category === 'Incorrect Only') {
-      let filteredCards = this.retrieveFromStorage();
+      let filteredCards = this.state.incorrectFlashcards;
       return filteredCards;
     } else if (this.state.category === 'No study cards yet - Keep guessing!') {
       let filteredCards = this.state.flashcards;
@@ -59,15 +61,20 @@ export default class App extends Component {
   }
 
   saveToStorage = (flashcard) => {
-    let { incorrectFlashcards } = this.state;
+    let { flashcards } = this.state;
+    let [...incorrectFlashcards] = this.state.incorrectFlashcards;
+    let incorrectFlashcardIDS = [];
     if (JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'))) {
-      incorrectFlashcards = JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'));
-      incorrectFlashcards.push(flashcard.id);
-      localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcards));
-    } else {
-      incorrectFlashcards.push(flashcard.id);
-      localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcards))
+      incorrectFlashcardIDS = JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'));
     }
+    incorrectFlashcardIDS.push(flashcard.id);
+    localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcardIDS));
+    incorrectFlashcards = flashcards.filter(flashcard => {
+      if (incorrectFlashcardIDS.includes(flashcard.id)) {
+        return flashcard;
+      }
+    });
+    this.setState({ incorrectFlashcards })
   }
 
   retrieveFromStorage = () => {
