@@ -112,7 +112,7 @@ export default class App extends Component {
               <PlayerControl
                 filteredCards={this.filterCardsByCategory()}
                 updateCategory={this.updateCategory}
-                removeStorage={this.removeStorage}/>
+                removeStorage={this.removeStorage} />
               <FlashcardContainer
                 category={category}
                 filteredCards={this.filterCardsByCategory()}
