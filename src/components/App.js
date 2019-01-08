@@ -17,23 +17,19 @@ export default class App extends Component {
   }
 
   componentDidMount = () => {
-    this.getData();
-  }
-
-  getData = () => {
     fetch('http://memoize-datasets.herokuapp.com/api/v1/flashCardData')
-    .then(result => result.json())
-    .then(
-      (result) => {
-        const flashcards = result.flashcardData
-        this.setState({
-          flashcards,
-          category: 'Welcome to Quizzy! Choose a category above.'
-        },
-          this.retrieveFromStorage)
-      }
-    )
-    .catch((error) => this.setState({ error: true }))
+      .then(result => result.json())
+      .then(
+        (result) => {
+          const flashcards = result.flashcardData
+          this.setState({
+            flashcards,
+            category: 'Welcome to Quizzy! Choose a category above.'
+          },
+            this.retrieveFromStorage)
+        }
+      )
+      .catch((error) => this.setState({ error: true }))
   }
 
   updateCategory = (clickedCategory) => {
@@ -84,7 +80,7 @@ export default class App extends Component {
     console.log(incorrectFlashcardIDs)
     if (incorrectFlashcardIDs === null) {
       incorrectFlashcards = flashcards;
-    } else { 
+    } else {
       incorrectFlashcards = flashcards.filter(flashcard => {
         if (incorrectFlashcardIDs.includes(flashcard.id)) {
           return flashcard;
@@ -97,6 +93,7 @@ export default class App extends Component {
 
   removeStorage = () => {
     localStorage.removeItem('incorrectFlashcardsStorage')
+    // window.reload();
   }
 
   render() {
