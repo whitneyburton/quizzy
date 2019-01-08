@@ -98,7 +98,6 @@ export default class App extends Component {
       let correctFlashcardIndex = incorrectFlashcardIDS.indexOf(flashcard.id);
       incorrectFlashcardIDS.splice(correctFlashcardIndex, 1);
       localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcardIDS));
-      console.log(incorrectFlashcardIDS.length)
       if (incorrectFlashcardIDS.length === 0) {
         this.deleteAllStorage();
       }
