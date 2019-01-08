@@ -106,11 +106,13 @@ export default class App extends Component {
 
   deleteAllStorage = () => {
     localStorage.removeItem('incorrectFlashcardsStorage')
-    // window.reload();
+    this.setState({
+      incorrectFlashcards: [],
+      category: 'Welcome to Quizzy! Choose a category above.' })
   }
 
   render() {
-    let { error, category } = this.state;
+    let { error, category, incorrectFlashcards } = this.state;
     return (
       <div className="App">
         {!error ? (
@@ -120,6 +122,7 @@ export default class App extends Component {
               updateCategory={this.updateCategory} />
             <div className="main-page">
               <PlayerControl
+                incorrectFlashcards={incorrectFlashcards}
                 filteredCards={this.filterCardsByCategory()}
                 updateCategory={this.updateCategory}
                 deleteAllStorage={this.deleteAllStorage} />
