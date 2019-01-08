@@ -9,12 +9,13 @@ export default class Flashcard extends Component {
   }
 
   validateAnswer = (e) => {
-    let { flashcard, saveToStorage } = this.props;
+    let { flashcard, saveToStorage, removeCorrectFromStorage } = this.props;
     let answerClicked = e.target.innerText;
     if (flashcard.answer === answerClicked) {
       flashcard.correct = true;
       e.target.closest('.Flashcard').classList.remove('incorrect-answer')
       e.target.closest('.Flashcard').classList.add('correct-answer')
+      removeCorrectFromStorage(flashcard);
     } else {
       flashcard.correct = false;
       e.target.closest('.Flashcard').classList.remove('correct-answer')

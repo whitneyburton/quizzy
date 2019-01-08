@@ -63,7 +63,9 @@ export default class App extends Component {
     if (JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'))) {
       incorrectFlashcardIDS = JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'));
     }
-    incorrectFlashcardIDS.push(flashcard.id);
+    if (!incorrectFlashcardIDS.includes(flashcard.id)) {
+      incorrectFlashcardIDS.push(flashcard.id);
+    }
     localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcardIDS));
     incorrectFlashcards = flashcards.filter(flashcard => {
       if (incorrectFlashcardIDS.includes(flashcard.id)) {
@@ -77,7 +79,6 @@ export default class App extends Component {
     let { flashcards } = this.state;
     let incorrectFlashcards;
     let incorrectFlashcardIDs = JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'));
-    console.log(incorrectFlashcardIDs)
     if (incorrectFlashcardIDs === null) {
       incorrectFlashcards = flashcards;
     } else {
@@ -91,7 +92,18 @@ export default class App extends Component {
     return incorrectFlashcards;
   }
 
-  removeStorage = () => {
+  removeCorrectFromStorage = (flashcard) => {
+    let incorrectFlashcardIDS = JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'));
+    let correctFlashcardIndex = incorrectFlashcardIDS.indexOf(flashcard.id);
+    incorrectFlashcardIDS.splice(correctFlashcardIndex, 1);
+    localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcardIDS));
+    console.log(incorrectFlashcardIDS.length)
+    if (incorrectFlashcardIDS.length === 0) {
+      this.deleteAllStorage();
+    }
+  }
+
+  deleteAllStorage = () => {
     localStorage.removeItem('incorrectFlashcardsStorage')
     // window.reload();
   }
@@ -109,11 +121,12 @@ export default class App extends Component {
               <PlayerControl
                 filteredCards={this.filterCardsByCategory()}
                 updateCategory={this.updateCategory}
-                removeStorage={this.removeStorage} />
+                deleteAllStorage={this.deleteAllStorage} />
               <FlashcardContainer
                 category={category}
                 filteredCards={this.filterCardsByCategory()}
-                saveToStorage={this.saveToStorage} />
+                saveToStorage={this.saveToStorage}
+                removeCorrectFromStorage={this.removeCorrectFromStorage} />
             </div>
           </div>
         ) : (
