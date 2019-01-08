@@ -69,13 +69,16 @@ export default class Flashcard extends Component {
               type="button">{answer}</button>
           })}
         </div>
-        <p className={correctFeedback}>That's right! Nice work, quizzy pro.</p>
+        <p className={correctFeedback}>That's right! Nice work, Quizzy pro.</p>
         <p className={incorrectFeedback}>Not quite. Keep guessing!</p>
-        <a
-          href={flashcard.mdn_link}
-          className="mdn-link"
-          target="_blank"
-          rel="noopener noreferrer">Learn More</a>
+        <div className="learn-more">
+          <a
+            href={flashcard.mdn_link}
+            className="mdn-link"
+            target="_blank"
+            rel="noopener noreferrer">Learn More</a>
+          <p className="syntax"><em>{flashcard.syntax}</em></p>
+        </div>
       </div>
     )
   }

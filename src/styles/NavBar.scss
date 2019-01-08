@@ -18,13 +18,12 @@
 
 .choose-category {
   color: white;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .buttons {
-  font-size: 12px;
+  font-size: 13px;
   border-radius: 10px;
-  margin: 0px 10px;
   
   &:hover {
     cursor: pointer;
@@ -36,4 +35,5 @@
 
 .filters {
   padding: 5px;
+  margin: 0px 10px;
 }
