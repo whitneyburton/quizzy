@@ -1,11 +1,13 @@
 .NavBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #136b62;
   padding: 20px 32px 32px 32px;
 }
 
 .quizzy-title {
   color: white;
-  text-align: center;
   margin: 0px;
   padding-bottom: 20px;
 }
@@ -14,9 +16,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 70%;
 }
 
 .choose-category {
+  font-weight: bold;
   color: white;
   font-size: 16px;
 }
@@ -36,4 +40,5 @@
 .filters {
   padding: 5px;
   margin: 0px 10px;
+  width: 16%; 
 }
