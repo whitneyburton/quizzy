@@ -95,8 +95,8 @@ export default class App extends Component {
     return incorrectFlashcards;
   }
 
-  resetStorage = () => {
-
+  removeStorage = () => {
+    localStorage.removeItem('incorrectFlashcardsStorage')
   }
 
   render() {
@@ -111,7 +111,8 @@ export default class App extends Component {
             <div className="main-page">
               <PlayerControl
                 filteredCards={this.filterCardsByCategory()}
-                updateCategory={this.updateCategory} />
+                updateCategory={this.updateCategory}
+                removeStorage={this.removeStorage}/>
               <FlashcardContainer
                 category={category}
                 filteredCards={this.filterCardsByCategory()}

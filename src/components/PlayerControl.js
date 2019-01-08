@@ -20,7 +20,7 @@ export default class PlayerControl extends Component {
   }
 
   render() {
-    let { filteredCards } = this.props;
+    let { filteredCards, removeStorage } = this.props;
     return (
       <div className="PlayerControl">
         <h2>Your Stats:</h2>
@@ -38,6 +38,7 @@ export default class PlayerControl extends Component {
           className="view-incorrect-button buttons"
           type="button">View Study List</button>
         <button
+          onClick={removeStorage}                    
           className="reset-button buttons"
           type="button">Reset Quizzy</button>
       </div>
