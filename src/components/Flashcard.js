@@ -5,6 +5,7 @@ export default class Flashcard extends Component {
   constructor() {
     super();
     this.state = {
+      correct: null
     }
   }
 
@@ -12,14 +13,10 @@ export default class Flashcard extends Component {
     let { flashcard, saveToStorage, removeCorrectFromStorage } = this.props;
     let answerClicked = e.target.innerText;
     if (flashcard.answer === answerClicked) {
-      flashcard.correct = true;
-      e.target.closest('.Flashcard').classList.remove('incorrect-answer')
-      e.target.closest('.Flashcard').classList.add('correct-answer')
+      this.setState({ correct: true });
       removeCorrectFromStorage(flashcard);
     } else {
-      flashcard.correct = false;
-      e.target.closest('.Flashcard').classList.remove('correct-answer')
-      e.target.closest('.Flashcard').classList.add('incorrect-answer')
+      this.setState({ correct: false });
       saveToStorage(flashcard);
     }
   }
@@ -39,79 +36,47 @@ export default class Flashcard extends Component {
 
   render() {
     const { flashcard, filteredCards } = this.props;
-    let currentAnswersArray = this.randomizeAnswers()
-    if (flashcard.correct === null) {
-      return (
-        <div className="Flashcard">
-          <p className="question-counter">
-            Question {filteredCards.indexOf(flashcard) + 1}/{filteredCards.length}
-          </p>
-          <p className="flashcard-question">{flashcard.question}</p>
-          <div className="buttons-container">
-            {currentAnswersArray.map((answer, index) => {
-              return <button
-                key={index}
-                onClick={this.validateAnswer}
-                className="buttons flashcard-buttons"
-                type="button">{answer}</button>
-            })}
-          </div>
-          <a
-            href={flashcard.mdn_link}
-            className="mdn-link"
-            target="_blank"
-            rel="noopener noreferrer">Learn More</a>
+    const { correct } = this.state;
+    let currentAnswersArray = this.randomizeAnswers();
+    let flashcardClass = 'Flashcard';
+    let correctFeedback;
+    let incorrectFeedback;
+      if (correct === true) {
+        flashcardClass = 'Flashcard correct-answer'
+        correctFeedback = 'show'
+        incorrectFeedback = 'hide'
+      } else if (correct === false) {
+        flashcardClass = 'Flashcard incorrect-answer'
+        incorrectFeedback = 'show'
+        correctFeedback = 'hide'
+      } else {
+        incorrectFeedback = 'hide'
+        correctFeedback = 'hide'
+      }
+
+    return (
+      <div className={flashcardClass}>
+        <p className="question-counter">
+          Question {filteredCards.indexOf(flashcard) + 1}/{filteredCards.length}
+        </p>
+        <p className="flashcard-question">{flashcard.question}</p>
+        <div className="buttons-container">
+          {currentAnswersArray.map((answer, index) => {
+            return <button
+              key={index}
+              onClick={this.validateAnswer}
+              className="buttons flashcard-buttons"
+              type="button">{answer}</button>
+          })}
         </div>
-      )
-    } else if (flashcard.correct === false) {
-      return (
-        <div className="Flashcard">
-          <p className="question-counter">
-            Question {filteredCards.indexOf(flashcard) + 1}/{filteredCards.length}
-          </p>
-          <p className="flashcard-question">{flashcard.question}</p>
-          <div className="buttons-container">
-            {currentAnswersArray.map((answer, index) => {
-              return <button
-                key={index}
-                onClick={this.validateAnswer}
-                className="buttons flashcard-buttons"
-                type="button">{answer}</button>
-            })}
-          </div>
-          <p>Not quite! Try again. Use the link below for more information.</p>
-          <a
-            href={flashcard.mdn_link}
-            className="mdn-link"
-            target="_blank"
-            rel="noopener noreferrer">Learn More</a>
-        </div>
-      )
-    } else {
-      return (
-        <div className="Flashcard">
-          <p className="question-counter">
-            Question {filteredCards.indexOf(flashcard) + 1}/{filteredCards.length}
-          </p>
-          <p className="flashcard-question">{flashcard.question}</p>
-          <div className="buttons-container">
-            {currentAnswersArray.map((answer, index) => {
-              return <button
-                disabled
-                key={index}
-                onClick={this.validateAnswer}
-                className="buttons flashcard-buttons"
-                type="button">{answer}</button>
-            })}
-          </div>
-          <p>That's right! Nice work, quizzy pro.</p>
-          <a
-            href={flashcard.mdn_link}
-            className="mdn-link"
-            target="_blank"
-            rel="noopener noreferrer">Learn More</a>
-        </div>
-      )
-    }
+        <p className={correctFeedback}>That's right! Nice work, quizzy pro.</p>
+        <p className={incorrectFeedback}>Not quite. Keep guessing!</p>
+        <a
+          href={flashcard.mdn_link}
+          className="mdn-link"
+          target="_blank"
+          rel="noopener noreferrer">Learn More</a>
+      </div>
+    )
   }
 }
