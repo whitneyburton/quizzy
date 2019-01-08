@@ -1,0 +1,559 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerControl should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PlayerControl
+    filteredCards={
+      Array [
+        Object {},
+        Object {},
+        Object {},
+      ]
+    }
+    removeStorage={[MockFunction]}
+    updateCategory={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h2>
+          Your Stats:
+        </h2>,
+        <p
+          className="correct-answers stats"
+        >
+          CORRECT:
+          <span>
+             
+            0
+          </span>
+        </p>,
+        <p
+          className="incorrect-answers stats"
+        >
+          INCORRECT:
+          <span>
+             
+            0
+          </span>
+        </p>,
+        <p
+          className="unanswered-answers stats"
+        >
+          UNANSWERED:
+          <span>
+             
+            0
+          </span>
+        </p>,
+        <p
+          className="accuracy stats"
+        >
+          ACCURACY:
+          <span>
+             
+            0
+          </span>
+          %
+        </p>,
+        <button
+          className="view-incorrect-button buttons"
+          onClick={[Function]}
+          type="button"
+        >
+          View Study List
+        </button>,
+        <button
+          className="reset-button buttons"
+          onClick={[MockFunction]}
+          type="button"
+        >
+          Reset Quizzy
+        </button>,
+      ],
+      "className": "PlayerControl",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Your Stats:",
+        },
+        "ref": null,
+        "rendered": "Your Stats:",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "CORRECT:",
+            <span>
+               
+              0
+            </span>,
+          ],
+          "className": "correct-answers stats",
+        },
+        "ref": null,
+        "rendered": Array [
+          "CORRECT:",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                0,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              0,
+            ],
+            "type": "span",
+          },
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "INCORRECT:",
+            <span>
+               
+              0
+            </span>,
+          ],
+          "className": "incorrect-answers stats",
+        },
+        "ref": null,
+        "rendered": Array [
+          "INCORRECT:",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                0,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              0,
+            ],
+            "type": "span",
+          },
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "UNANSWERED:",
+            <span>
+               
+              0
+            </span>,
+          ],
+          "className": "unanswered-answers stats",
+        },
+        "ref": null,
+        "rendered": Array [
+          "UNANSWERED:",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                0,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              0,
+            ],
+            "type": "span",
+          },
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "ACCURACY:",
+            <span>
+               
+              0
+            </span>,
+            "%",
+          ],
+          "className": "accuracy stats",
+        },
+        "ref": null,
+        "rendered": Array [
+          "ACCURACY:",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                " ",
+                0,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              " ",
+              0,
+            ],
+            "type": "span",
+          },
+          "%",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "View Study List",
+          "className": "view-incorrect-button buttons",
+          "onClick": [Function],
+          "type": "button",
+        },
+        "ref": null,
+        "rendered": "View Study List",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Reset Quizzy",
+          "className": "reset-button buttons",
+          "onClick": [MockFunction],
+          "type": "button",
+        },
+        "ref": null,
+        "rendered": "Reset Quizzy",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h2>
+            Your Stats:
+          </h2>,
+          <p
+            className="correct-answers stats"
+          >
+            CORRECT:
+            <span>
+               
+              0
+            </span>
+          </p>,
+          <p
+            className="incorrect-answers stats"
+          >
+            INCORRECT:
+            <span>
+               
+              0
+            </span>
+          </p>,
+          <p
+            className="unanswered-answers stats"
+          >
+            UNANSWERED:
+            <span>
+               
+              0
+            </span>
+          </p>,
+          <p
+            className="accuracy stats"
+          >
+            ACCURACY:
+            <span>
+               
+              0
+            </span>
+            %
+          </p>,
+          <button
+            className="view-incorrect-button buttons"
+            onClick={[Function]}
+            type="button"
+          >
+            View Study List
+          </button>,
+          <button
+            className="reset-button buttons"
+            onClick={[MockFunction]}
+            type="button"
+          >
+            Reset Quizzy
+          </button>,
+        ],
+        "className": "PlayerControl",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Your Stats:",
+          },
+          "ref": null,
+          "rendered": "Your Stats:",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "CORRECT:",
+              <span>
+                 
+                0
+              </span>,
+            ],
+            "className": "correct-answers stats",
+          },
+          "ref": null,
+          "rendered": Array [
+            "CORRECT:",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  0,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                0,
+              ],
+              "type": "span",
+            },
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "INCORRECT:",
+              <span>
+                 
+                0
+              </span>,
+            ],
+            "className": "incorrect-answers stats",
+          },
+          "ref": null,
+          "rendered": Array [
+            "INCORRECT:",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  0,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                0,
+              ],
+              "type": "span",
+            },
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "UNANSWERED:",
+              <span>
+                 
+                0
+              </span>,
+            ],
+            "className": "unanswered-answers stats",
+          },
+          "ref": null,
+          "rendered": Array [
+            "UNANSWERED:",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  0,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                0,
+              ],
+              "type": "span",
+            },
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "ACCURACY:",
+              <span>
+                 
+                0
+              </span>,
+              "%",
+            ],
+            "className": "accuracy stats",
+          },
+          "ref": null,
+          "rendered": Array [
+            "ACCURACY:",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  " ",
+                  0,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                " ",
+                0,
+              ],
+              "type": "span",
+            },
+            "%",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "View Study List",
+            "className": "view-incorrect-button buttons",
+            "onClick": [Function],
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": "View Study List",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Reset Quizzy",
+            "className": "reset-button buttons",
+            "onClick": [MockFunction],
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": "Reset Quizzy",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
