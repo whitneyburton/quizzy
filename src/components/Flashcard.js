@@ -41,18 +41,18 @@ export default class Flashcard extends Component {
     let flashcardClass = 'Flashcard';
     let correctFeedback;
     let incorrectFeedback;
-      if (correct === true) {
-        flashcardClass = 'Flashcard correct-answer'
-        correctFeedback = 'show'
-        incorrectFeedback = 'hide'
-      } else if (correct === false) {
-        flashcardClass = 'Flashcard incorrect-answer'
-        incorrectFeedback = 'show'
-        correctFeedback = 'hide'
-      } else {
-        incorrectFeedback = 'hide'
-        correctFeedback = 'hide'
-      }
+    if (correct === true) {
+      flashcardClass = 'Flashcard correct-answer'
+      correctFeedback = 'show'
+      incorrectFeedback = 'hide'
+    } else if (correct === false) {
+      flashcardClass = 'Flashcard incorrect-answer'
+      incorrectFeedback = 'show'
+      correctFeedback = 'hide'
+    } else {
+      incorrectFeedback = 'hide'
+      correctFeedback = 'hide'
+    }
 
     return (
       <div className={flashcardClass}>

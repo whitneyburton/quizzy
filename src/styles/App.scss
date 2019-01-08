@@ -11,3 +11,11 @@
 .main-page {
   display: flex;
 }
+
+@media screen and (max-width: 755px) {
+  .main-page {
+    display: block;
+    
+  }
+
+}

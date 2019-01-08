@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #136b62;
-  padding: 20px 32px 32px 32px;
+  padding: 20px 0px 30px 0px;
 }
 
 .quizzy-title {
@@ -12,7 +12,7 @@
   padding-bottom: 20px;
 }
 
-.filter-category-buttons {
+.filter-section {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,17 +28,34 @@
 .buttons {
   font-size: 13px;
   border-radius: 10px;
-  
+
   &:hover {
     cursor: pointer;
-  }  
-  
-  &:focus {
   }
+
+  &:focus {}
 }
 
-.filters {
+.filter-button {
   padding: 5px;
   margin: 0px 10px;
-  width: 16%; 
+  width: 25%;
+}
+
+@media screen and (max-width: 755px) {
+  .NavBar {
+    padding: 10px 0px;
+  }
+
+  .buttons {
+    font-size: 12px;
+  }
+
+  .filter-section {
+    flex-direction: column;
+  }
+
+  .filter-button {
+    margin: 10px 0px;
+  }
 }

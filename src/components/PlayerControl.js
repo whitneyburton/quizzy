@@ -23,7 +23,7 @@ export default class PlayerControl extends Component {
     let { incorrectFlashcards, deleteAllStorage } = this.props;
     return (
       <div className="PlayerControl">
-        <h2>Player Options</h2>
+        <h2 className="player-options">Player Options</h2>
         <button
           onClick={this.passCategory}          
           className="view-incorrect-button buttons"
