@@ -43,12 +43,12 @@ export default class App extends Component {
       let filteredCards = this.state.incorrectFlashcards;
       return filteredCards;
     } else if (this.state.category === 'No study cards yet - Keep guessing!') {
-      let filteredCards = this.state.flashcards;
+      let filteredCards = [];
       return filteredCards;
     } else if (this.state.category !== null && this.state.category !== 'All!') {
       let filteredCards = this.state.flashcards.filter(flashcard => {
         return this.state.category.toLowerCase() === flashcard.type;
-      });
+      })
       return filteredCards;
     } else {
       let filteredCards = this.state.flashcards;
@@ -75,15 +75,11 @@ export default class App extends Component {
     let { flashcards } = this.state;
     let incorrectFlashcards;
     let incorrectFlashcardIDs = JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'));
-    if (incorrectFlashcardIDs === null) {
-      incorrectFlashcards = flashcards;
-    } else {
-      incorrectFlashcards = flashcards.filter(flashcard => {
-        if (incorrectFlashcardIDs.includes(flashcard.id)) {
-          return flashcard;
-        }
-      });
-    }
+    incorrectFlashcards = flashcards.filter(flashcard => {
+      if (incorrectFlashcardIDs && incorrectFlashcardIDs.includes(flashcard.id)) {
+        return flashcard;
+      }
+    });
     this.setState({ incorrectFlashcards })
     return incorrectFlashcards;
   }
