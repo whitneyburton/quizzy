@@ -94,12 +94,14 @@ export default class App extends Component {
 
   removeCorrectFromStorage = (flashcard) => {
     let incorrectFlashcardIDS = JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'));
-    let correctFlashcardIndex = incorrectFlashcardIDS.indexOf(flashcard.id);
-    incorrectFlashcardIDS.splice(correctFlashcardIndex, 1);
-    localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcardIDS));
-    console.log(incorrectFlashcardIDS.length)
-    if (incorrectFlashcardIDS.length === 0) {
-      this.deleteAllStorage();
+    if (incorrectFlashcardIDS && incorrectFlashcardIDS.includes(flashcard.id)) {
+      let correctFlashcardIndex = incorrectFlashcardIDS.indexOf(flashcard.id);
+      incorrectFlashcardIDS.splice(correctFlashcardIndex, 1);
+      localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcardIDS));
+      console.log(incorrectFlashcardIDS.length)
+      if (incorrectFlashcardIDS.length === 0) {
+        this.deleteAllStorage();
+      }
     }
   }
 
