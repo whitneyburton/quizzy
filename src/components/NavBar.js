@@ -24,6 +24,7 @@ export default class NavBar extends Component {
             {categories.map(category => {
               return (
                 <button
+                  key={category}
                   onClick={this.passCategory}
                   className="buttons filter-button"
                   type="button">{category}
