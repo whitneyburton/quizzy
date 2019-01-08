@@ -1,9 +1,8 @@
 .Flashcard {
-  border: 1px solid black;
+  border: 3px solid transparent;
   border-radius: 5px;
   background-color: #ccdedc;
   width: 75%;
-  // height: 5000px;
   margin: 10px 0px;
   padding: 28px;
 }
@@ -20,12 +19,29 @@
 .buttons-container {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 20px;
 }
 
 .flashcard-buttons {
   padding: 10px;
 }
 
-.hide {
-  display: none;
+.correct-answer {
+  border: 3px solid #136b62;
+}
+
+.incorrect-answer {
+  border: 3px solid #9e0606;
+}
+
+.mdn-link {
+  font-size: 12px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:visited {
+    color: black;
+  }
 }
