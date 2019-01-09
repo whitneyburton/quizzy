@@ -12,7 +12,7 @@ describe('App', () => {
     wrapper = shallow(
       <App />
     )
-  })
+  });
 
   afterEach(() => {
     localStorage.clear();
@@ -22,7 +22,7 @@ describe('App', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
     ReactDOM.unmountComponentAtNode(div);
-  })
+  });
 
   it('should have the appropriate default state', () => {
     expect(wrapper.state()).toEqual({
@@ -33,14 +33,14 @@ describe('App', () => {
     })
     expect(wrapper.state().flashcards).toEqual(expect.arrayContaining([]))
     expect(wrapper.state().incorrectFlashcards).toEqual(expect.arrayContaining([]))
-  })
+  });
 
   it('should render the NavBar, PlayerControl, and FlashcardContainer components', () => {
     wrapper.setState({ error: false })
     expect(wrapper.find('NavBar').length).toEqual(1)
     expect(wrapper.find('PlayerControl').length).toEqual(1)
     expect(wrapper.find('FlashcardContainer').length).toEqual(1)
-  })
+  });
 
   it('should update local storage', () => {
     let incorrectFlashcards = [{ id: 1 }, { id: 2 }, { id: 3 }];
@@ -58,7 +58,7 @@ describe('App', () => {
     });
     let incorrectFlashcards = wrapper.instance().retrieveFromStorage();
     expect(incorrectFlashcards).toEqual([{ id: 1 }, { id: 2 }, { id: 3 }]);
-  })
+  });
 
   it('should remove correctly answered flashcards from storage', () => {
     let flashcard = { id: 2 }
@@ -67,7 +67,7 @@ describe('App', () => {
     wrapper.instance().removeCorrectFromStorage(flashcard);
     itemsInStorage = JSON.parse(localStorage.getItem('incorrectFlashcardsStorage'));
     expect(itemsInStorage).toEqual([1, 3]);
-  })
+  });
 
   it('should remove the local storage key and reset state when deleteAllStorage is called', () => {
     wrapper.setState({

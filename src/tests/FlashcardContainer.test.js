@@ -1,7 +1,6 @@
 import React from 'react';
 import FlashcardContainer from '../Components/FlashcardContainer';
 import { shallow } from 'enzyme';
-import Flashcard from '../components/Flashcard';
 
 describe('FlashcardContainer', () => {
   let wrapper;
