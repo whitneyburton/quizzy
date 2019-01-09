@@ -4,7 +4,6 @@ import FlashcardContainer from './FlashcardContainer';
 import PlayerControl from './PlayerControl';
 import NavBar from './NavBar';
 
-
 export default class App extends Component {
   constructor() {
     super();

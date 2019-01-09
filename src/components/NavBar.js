@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import '../styles/main.scss';
 
 export default class NavBar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      categories: ['Mutator', 'Accessor', 'Iteration', 'All!']
-    }
+  returnCategories = () => {
+    let categories = ['Mutator', 'Accessor', 'Iteration', 'All!']
+    return categories;
   }
 
   passCategory = (e) => {
@@ -15,7 +13,7 @@ export default class NavBar extends Component {
   }
 
   render() {
-    let { categories } = this.state;
+    let categories = this.returnCategories();
     return (
       <div className="NavBar">
         <h1 className="quizzy-title">QUIZZY!</h1>
