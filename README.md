@@ -1,5 +1,5 @@
 ## QUIZZY
-Quizzy is a great game for learning your array prototype methods. You can choose to study only one type: mutator, accessor, or iteration, or to study all methods! Check your study list to see the cards you can try again to answer correctly. 
+Quizzy is a study app for learning your array prototype methods using a custom built API. You can choose to study only a single type: mutator, accessor, or iteration methods, or to study all methods! Check your study list (stored locally in your browser) to see the cards you need more practice with.
 
 ## Preview
 ![2019-01-09 01 00 36](https://user-images.githubusercontent.com/33883645/50885362-bbf0cf80-13aa-11e9-8e22-5ffd9097af37.gif)
