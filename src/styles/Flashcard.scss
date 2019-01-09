@@ -1,5 +1,5 @@
 .Flashcard {
-  border: 3px solid transparent;
+  border: $transparent-border;
   border-radius: 5px;
   background-color: $light-seafoam;
   width: 75%;
@@ -50,11 +50,11 @@
 
 // dynamic css properties: updated based on correct/incorrect
 .correct-answer {
-  border: 3px solid $correct-color;
+  border: $correct-border;
 }
 
 .incorrect-answer {
-  border: 3px solid $incorrect-color;
+  border: $incorrect-border;
 }
 
 .hide {
