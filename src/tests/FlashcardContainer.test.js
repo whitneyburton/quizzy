@@ -19,5 +19,5 @@ describe('FlashcardContainer', () => {
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-  })
-})
+  });
+});

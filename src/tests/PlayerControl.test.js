@@ -4,8 +4,8 @@ import { shallow } from 'enzyme';
 
 describe('PlayerControl', () => {
   let wrapper;
-  const incorrectFlashcards = [{}, {}, {}]
-  const filteredCards = [{}, {}, {}]
+  const incorrectFlashcards = [{}, {}, {}];
+  const filteredCards = [{}, {}, {}];
   const updateCategoryMock = jest.fn();
   const deleteAllStorageMock = jest.fn();
 
@@ -33,5 +33,5 @@ describe('PlayerControl', () => {
     studyListButton.simulate('click');
     wrapper.instance().passCategory();
     expect(updateCategoryMock).toBeCalled();
-   })
-})
+  });
+});
