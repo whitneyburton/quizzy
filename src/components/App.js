@@ -109,9 +109,7 @@ export default class App extends Component {
       <div className="App">
         {!error ? (
           <div>
-            <NavBar
-              filterCardsByCategory={this.filterCardsByCategory}
-              updateCategory={this.updateCategory} />
+            <NavBar updateCategory={this.updateCategory} />
             <div className="main-page">
               <PlayerControl
                 incorrectFlashcards={incorrectFlashcards}

@@ -72,3 +72,14 @@
   }
 }
 
+@media screen and (max-width: 755px) {
+  .flashcard-buttons {
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  .syntax {
+    display: none;
+  }
+
+}

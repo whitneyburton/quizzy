@@ -4,8 +4,6 @@ import { shallow } from 'enzyme';
 
 describe('NavBar', () => {
   let wrapper;
-  const filterCardsByCategoryMock = jest.fn();
-  const updateCategoryMock = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
@@ -17,6 +15,14 @@ describe('NavBar', () => {
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-  })
+  });
+
+  it('should have the appropriate default state', () => {
+    expect(wrapper.state()).toEqual({
+      categories: ['Mutator', 'Accessor', 'Iteration', 'All!']
+    })
+  });
+
+
 
 })

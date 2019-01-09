@@ -19,6 +19,7 @@ exports[`NavBar should match the snapshot 1`] = `
     </p>
     <button
       className="buttons filter-button"
+      key="Mutator"
       onClick={[Function]}
       type="button"
     >
@@ -26,6 +27,7 @@ exports[`NavBar should match the snapshot 1`] = `
     </button>
     <button
       className="buttons filter-button"
+      key="Accessor"
       onClick={[Function]}
       type="button"
     >
@@ -33,6 +35,7 @@ exports[`NavBar should match the snapshot 1`] = `
     </button>
     <button
       className="buttons filter-button"
+      key="Iteration"
       onClick={[Function]}
       type="button"
     >
@@ -40,6 +43,7 @@ exports[`NavBar should match the snapshot 1`] = `
     </button>
     <button
       className="buttons filter-button"
+      key="All!"
       onClick={[Function]}
       type="button"
     >

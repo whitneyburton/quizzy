@@ -31,11 +31,11 @@ describe('Flashcard', () => {
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-  })
+  });
 
   it('should have the appropriate default state', () => {
     expect(wrapper.state()).toEqual({ correct: null });
-  })
+  });
 
   it('should validate the users answer when an answer button is clicked', () => {
     expect(wrapper.state()).toEqual({ correct: null });
@@ -46,11 +46,11 @@ describe('Flashcard', () => {
     wrapper.instance().validateAnswer({ target: { innerText: '.map()' } });
     expect(wrapper.state()).toEqual({ correct: false });
     expect(saveToStorageMock).toBeCalled();
-  })
+  });
 
   it('should randomize the possible answers for the flashcard', () => {
     let finalArray = wrapper.instance().randomizeAnswers().length;
     expect(finalArray).toEqual(3);
     expect(wrapper.instance().randomizeAnswers()).toContain('.copyWithin()');
-  })
-})
+  });
+});
