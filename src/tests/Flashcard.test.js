@@ -10,7 +10,7 @@ describe('Flashcard', () => {
     answer: '.copyWithin()',
     id: 4
   };
-  const filteredCards = [
+  const flashcards = [
     { answer: '.reduce()', id: 1 },
     { answer: '.map()', id: 2 },
     { answer: '.filter()', id: 3 },
@@ -23,7 +23,7 @@ describe('Flashcard', () => {
       <Flashcard
         key={id}
         flashcard={flashcard}
-        filteredCards={filteredCards}
+        flashcards={flashcards}
         saveToStorage={saveToStorageMock}
         removeCorrectFromStorage={removeCorrectFromStorageMock}
       />);

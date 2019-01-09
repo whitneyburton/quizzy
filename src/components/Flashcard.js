@@ -26,6 +26,7 @@ export default class Flashcard extends Component {
     let allAnswers = flashcards
       .map(flashcard => flashcard.answer)
       .sort(() => 0.5 - Math.random())
+    console.log(allAnswers)
     let correctAnswerIndex = allAnswers.indexOf(flashcard.answer)
     allAnswers.splice(correctAnswerIndex, 1)
     let finalArray = [...allAnswers
@@ -35,7 +36,7 @@ export default class Flashcard extends Component {
   }
 
   render() {
-    const { flashcard, filteredCards } = this.props;
+    const { flashcard, flashcards } = this.props;
     const { correct } = this.state;
     let currentAnswersArray = this.randomizeAnswers();
     let flashcardClass = 'Flashcard';
@@ -57,7 +58,7 @@ export default class Flashcard extends Component {
     return (
       <div className={flashcardClass}>
         <p className="question-counter">
-          Question {filteredCards.indexOf(flashcard) + 1}/{filteredCards.length}
+          Question {flashcards.indexOf(flashcard) + 1}/{flashcards.length}
         </p>
         <p className="flashcard-question">{flashcard.question}</p>
         <div className="buttons-container">
