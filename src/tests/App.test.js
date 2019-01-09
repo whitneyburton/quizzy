@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../Components/App';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 
 describe('App', () => {
@@ -9,7 +9,7 @@ describe('App', () => {
 
   beforeEach(() => {
     localStorage.setItem('incorrectFlashcardsStorage', '[1, 2, 3]');
-    wrapper = mount(
+    wrapper = shallow(
       <App />
     )
   })
@@ -37,9 +37,9 @@ describe('App', () => {
 
   it('should render the NavBar, PlayerControl, and FlashcardContainer components', () => {
     wrapper.setState({ error: false })
-    expect(wrapper.find('.NavBar').length).toEqual(1)
-    expect(wrapper.find('.PlayerControl').length).toEqual(1)
-    expect(wrapper.find('.FlashcardContainer').length).toEqual(1)
+    expect(wrapper.find('NavBar').length).toEqual(1)
+    expect(wrapper.find('PlayerControl').length).toEqual(1)
+    expect(wrapper.find('FlashcardContainer').length).toEqual(1)
   })
 
   it('should update local storage', () => {
