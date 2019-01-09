@@ -4,63 +4,66 @@
   align-items: center;
   background-color: #136b62;
   padding: 20px 0px 30px 0px;
-}
+  
+  .quizzy-title {
+    font-size: 4rem;
+    color: white;
+    margin: 0px;
+    padding-bottom: 20px;
+  }
+  
+  .filter-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
 
-.quizzy-title {
-  color: white;
-  margin: 0px;
-  padding-bottom: 20px;
-}
-
-.filter-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70%;
-}
-
-.choose-category {
-  font-weight: bold;
-  color: white;
-  font-size: 16px;
+    .choose-category {
+      font-weight: bold;
+      color: white;
+      font-size: 16px;
+    }
+    
+    .filter-button {
+      padding: 5px;
+      margin: 0px 10px;
+      width: 25%;
+    }
+  }
 }
 
 .buttons {
   font-size: 13px;
   border-radius: 10px;
-
+  
   &:hover {
     cursor: pointer;
+    box-shadow: 4px 4px 13px #9b9b9b;
   }
-
-  &:focus {}
-}
-
-.filter-button {
-  padding: 5px;
-  margin: 0px 10px;
-  width: 25%;
+  &:focus {
+    outline: 0;
+  }
 }
 
 @media screen and (max-width: 755px) {
   .NavBar {
     padding: 10px 0px;
+    
+    .filter-section {
+      flex-direction: column;
+
+      .filter-button {
+        margin: 10px 0px;
+        width: 70%;
+      }
+    
+      .choose-category {
+        text-align: center;
+      }
+    }
   }
 
   .buttons {
     font-size: 12px;
-  }
-
-  .filter-section {
-    flex-direction: column;
-  }
-
-  .filter-button {
-    margin: 10px 0px;
-    width: 70%;
-  }
-
-  .choose-category {
-    text-align: center;
   }
 }

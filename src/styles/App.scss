@@ -6,16 +6,16 @@
 
 .App {
   height: 100vh;
-}
-
-.main-page {
-  display: flex;
+  
+  .main-page {
+    display: flex;
+  }
 }
 
 @media screen and (max-width: 755px) {
-  .main-page {
-    display: block;
-    
+  .App {
+    .main-page {
+      display: block;
+    }
   }
-
 }

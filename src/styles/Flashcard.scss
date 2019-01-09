@@ -5,29 +5,54 @@
   width: 75%;
   margin: 10px 0px;
   padding: 28px;
+
+  .question-counter {
+    font-size: 12px;
+    text-align: right;
+  }
+  
+  .flashcard-question {
+    font-size: 18px;
+    margin: 20px 0px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+  }
+  
+  .flashcard-buttons {
+    padding: 10px;
+    width: 33%;
+    margin: 0% 1%;
+  }
+  
+  .learn-more {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+  }
+
+  .mdn-link {
+    font-size: 12px;
+    text-align: right;
+  
+    &:hover {
+      cursor: pointer;
+    }
+  
+    &:visited {
+      color: black;
+    }
+  }
+  
+  .syntax {
+    font-size: 12px;
+  }
 }
 
-.question-counter {
-  text-align: right;
-  font-size: 12px;
-}
-
-.flashcard-question {
-  font-size: 18px;
-  margin: 20px 0px;
-}
-
-.buttons-container {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 20px;
-}
-
-.flashcard-buttons {
-  padding: 10px;
-  width: 33%;
-}
-
+// dynamic css properties: updated based on correct/incorrect
 .correct-answer {
   border: 3px solid $correct-color;
 }
@@ -50,36 +75,18 @@
   display: block;
 }
 
-.learn-more {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 15px;
-}
-
-.syntax {
-  font-size: 12px;
-}
-
-.mdn-link {
-  font-size: 12px;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:visited {
-    color: black;
-  }
-}
-
 @media screen and (max-width: 755px) {
-  .flashcard-buttons {
-    padding: 5px;
-    font-size: 10px;
-  }
+  .Flashcard {
+    width: 90%;
+    padding: 8px;
 
-  .syntax {
-    display: none;
+    .flashcard-buttons {
+      padding: 5px;
+      font-size: 10px;
+    }
+  
+    .syntax {
+      display: none;
+    }
   }
-
 }
