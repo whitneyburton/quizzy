@@ -81,7 +81,6 @@ describe('App', () => {
     expect(wrapper.state().category).toEqual('Welcome to Quizzy! Choose a category above.')
   });
 
-
   it('should update category in state based on passed value', () => {
     expect(wrapper.state().category).toEqual(null);
     wrapper.instance().updateCategory('Accessor');

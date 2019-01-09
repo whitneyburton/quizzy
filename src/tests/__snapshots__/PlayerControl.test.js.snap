@@ -1,3 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlayerControl should match the snapshot 1`] = `undefined`;
+exports[`PlayerControl should match the snapshot 1`] = `
+<div
+  className="PlayerControl"
+>
+  <h2
+    className="player-options"
+  >
+    Player Options
+  </h2>
+  <button
+    className="view-incorrect-button buttons"
+    onClick={[Function]}
+    type="button"
+  >
+    View Study List (
+    3
+    )
+  </button>
+  <button
+    className="reset-button buttons"
+    onClick={[MockFunction]}
+    type="button"
+  >
+    Reset Quizzy
+  </button>
+</div>
+`;

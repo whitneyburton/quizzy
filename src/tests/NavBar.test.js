@@ -4,25 +4,24 @@ import { shallow } from 'enzyme';
 
 describe('NavBar', () => {
   let wrapper;
+  const updateCategoryMock = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
-      <NavBar
-      filterCardsByCategory={filterCardsByCategoryMock}
-      updateCategory={updateCategoryMock}
-      />);
+      <NavBar updateCategory={updateCategoryMock} />);
   });
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should have the appropriate default state', () => {
-    expect(wrapper.state()).toEqual({
-      categories: ['Mutator', 'Accessor', 'Iteration', 'All!']
-    })
+  it('should return an array of categories', () => {
+    let returnedArray = wrapper.instance().returnCategories();
+    expect(returnedArray).toEqual(['Mutator', 'Accessor', 'Iteration', 'All!']);
   });
 
-
-
-})
+  it('should pass the clicked category', () => {
+    wrapper.instance().passCategory({ target: { innerText: 'Mutator' } });
+    expect(updateCategoryMock).toBeCalled();
+  });
+});

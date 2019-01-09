@@ -24,7 +24,7 @@ exports[`Flashcard should match the snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      .filter()
+      .copyWithin()
     </button>
     <button
       className="buttons flashcard-buttons"
@@ -40,7 +40,7 @@ exports[`Flashcard should match the snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      .copyWithin()
+      .filter()
     </button>
   </div>
   <p

@@ -18,7 +18,7 @@ export default class PlayerControl extends Component {
       <div className="PlayerControl">
         <h2 className="player-options">Player Options</h2>
         <button
-          onClick={this.passCategory}          
+          onClick={this.passCategory}
           className="view-incorrect-button buttons"
           type="button">View Study List ({incorrectFlashcards.length})</button>
         <button
