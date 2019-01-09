@@ -22,8 +22,8 @@ export default class Flashcard extends Component {
   }
 
   randomizeAnswers() {
-    let { flashcard } = this.props;
-    let allAnswers = this.props.filteredCards
+    let { flashcard, flashcards } = this.props;
+    let allAnswers = flashcards
       .map(flashcard => flashcard.answer)
       .sort(() => 0.5 - Math.random())
     let correctAnswerIndex = allAnswers.indexOf(flashcard.answer)

@@ -10,6 +10,7 @@ export default function FlashcardContainer(props) {
         <Flashcard
           key={flashcard.id}
           flashcard={flashcard}
+          flashcards={props.flashcards}
           filteredCards={props.filteredCards}
           saveToStorage={props.saveToStorage}
           removeCorrectFromStorage={props.removeCorrectFromStorage} />

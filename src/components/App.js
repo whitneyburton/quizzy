@@ -103,7 +103,7 @@ export default class App extends Component {
   }
 
   render() {
-    let { error, category, incorrectFlashcards } = this.state;
+    let { flashcards, error, category, incorrectFlashcards } = this.state;
     return (
       <div className="App">
         {!error ? (
@@ -116,6 +116,7 @@ export default class App extends Component {
                 updateCategory={this.updateCategory}
                 deleteAllStorage={this.deleteAllStorage} />
               <FlashcardContainer
+                flashcards={flashcards}
                 category={category}
                 filteredCards={this.filterCardsByCategory()}
                 saveToStorage={this.saveToStorage}
