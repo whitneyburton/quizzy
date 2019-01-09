@@ -26,7 +26,6 @@ export default class Flashcard extends Component {
     let allAnswers = flashcards
       .map(flashcard => flashcard.answer)
       .sort(() => 0.5 - Math.random())
-    console.log(allAnswers)
     let correctAnswerIndex = allAnswers.indexOf(flashcard.answer)
     allAnswers.splice(correctAnswerIndex, 1)
     let finalArray = [...allAnswers
