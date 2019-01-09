@@ -32,7 +32,7 @@ exports[`Flashcard should match the snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      .filter()
+      .reduce()
     </button>
     <button
       className="buttons flashcard-buttons"
@@ -63,11 +63,6 @@ exports[`Flashcard should match the snapshot 1`] = `
     >
       Learn More
     </a>
-    <p
-      className="syntax"
-    >
-      <em />
-    </p>
   </div>
 </div>
 `;
