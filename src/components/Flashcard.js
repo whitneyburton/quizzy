@@ -77,7 +77,6 @@ export default class Flashcard extends Component {
             className="mdn-link"
             target="_blank"
             rel="noopener noreferrer">Learn More</a>
-          <p className="syntax"><em>{flashcard.syntax}</em></p>
         </div>
       </div>
     )

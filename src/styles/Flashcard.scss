@@ -1,7 +1,7 @@
 .Flashcard {
   border: 3px solid transparent;
   border-radius: 5px;
-  background-color: #ccdedc;
+  background-color: $light-seafoam;
   width: 75%;
   margin: 10px 0px;
   padding: 28px;
@@ -46,10 +46,6 @@
       color: black;
     }
   }
-  
-  .syntax {
-    font-size: 12px;
-  }
 }
 
 // dynamic css properties: updated based on correct/incorrect
@@ -83,10 +79,6 @@
     .flashcard-buttons {
       padding: 5px;
       font-size: 10px;
-    }
-  
-    .syntax {
-      display: none;
     }
   }
 }

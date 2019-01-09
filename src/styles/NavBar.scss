@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #136b62;
+  background-color: $deep-teal;
   padding: 20px 0px 30px 0px;
   
   .quizzy-title {
@@ -35,9 +35,11 @@
 .buttons {
   font-size: 13px;
   border-radius: 10px;
+  transition: all 300ms ease;
   
   &:hover {
     cursor: pointer;
+    background-color: #e9e9e9;
     box-shadow: 4px 4px 13px #9b9b9b;
   }
   &:focus {
