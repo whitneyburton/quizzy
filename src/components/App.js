@@ -91,15 +91,13 @@ export default class App extends Component {
       localStorage.setItem('incorrectFlashcardsStorage', JSON.stringify(incorrectFlashcardIDS));
       if (incorrectFlashcardIDS.length === 0) {
         this.deleteAllStorage();
-      }
+      } 
     }
   }
 
   deleteAllStorage = () => {
-    localStorage.removeItem('incorrectFlashcardsStorage')
-    this.setState({
-      incorrectFlashcards: [],
-      category: 'Welcome to Quizzy! Choose a category above.' })
+    localStorage.removeItem('incorrectFlashcardsStorage');
+    this.setState({ incorrectFlashcards: [] });
   }
 
   render() {

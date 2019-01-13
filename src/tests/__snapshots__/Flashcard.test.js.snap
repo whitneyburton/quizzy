@@ -24,7 +24,7 @@ exports[`Flashcard should match the snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      .reduce()
+      .filter()
     </button>
     <button
       className="buttons flashcard-buttons"
@@ -32,7 +32,7 @@ exports[`Flashcard should match the snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      .map()
+      .copyWithin()
     </button>
     <button
       className="buttons flashcard-buttons"
@@ -40,7 +40,7 @@ exports[`Flashcard should match the snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      .copyWithin()
+      .map()
     </button>
   </div>
   <p
